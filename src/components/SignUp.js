@@ -1,10 +1,20 @@
 import React from 'react';
 
 const SignUp = () => {
-    return(
-        <h1>
-            SIGN UP PAGE
-        </h1>
+    return (
+        <div className="signup-page">
+            <div className="user-icon">
+                <i className="fas fa-user"></i>
+            </div>
+            <p>Create an Account</p>
+            <div className="signup-form">
+                <form>
+                    <input type="text" placeholder="username" />
+                    <input type="text" placeholder="password" />
+                    <input type="submit" placeholder="signup" />
+                </form>
+            </div>
+        </div>
     )
 }
 
