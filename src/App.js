@@ -5,6 +5,7 @@ import SignUp from './components/SignUp'
 import './App.scss';
 import Unauthorized from './components/Unauthorized'
 import PrivateRoute from './components/PrivateRoute';
+import HomePage from './components/HomePage';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/unauthorized' component={Unauthorized} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
+          <Route exact path ='/home' component={HomePage} />
         </>
       </div>
     </Router>
