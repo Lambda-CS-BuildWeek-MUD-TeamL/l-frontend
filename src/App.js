@@ -1,22 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login'
 import SignUp from './components/SignUp'
-import './App.css';
+import './App.scss';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <p>
-            CS21 Build Week 1 - MUD - Team L
-          </p>
-        </header>
         <>
-        <Route exact path={'/login'} component={Login} />
-        <Route exact path={'/signup'} component={SignUp} />
-        
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={SignUp} />
+
         </>
       </div>
     </Router>
