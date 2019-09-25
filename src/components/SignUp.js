@@ -15,7 +15,7 @@ export default class SignUp extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = "https://lambda-mud-test.herokuapp.com/api/registration/";
+    const endpoint = "https://cs21teaml.herokuapp.com/api/registration/";
     axios
       .post(endpoint, this.state)
       .then(res => {

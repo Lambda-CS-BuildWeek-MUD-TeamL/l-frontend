@@ -13,7 +13,7 @@ export default class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const endpoint = "https://lambda-mud-test.herokuapp.com/api/login/";
+    const endpoint = "https://cs21teaml.herokuapp.com/api/login/";
     axios
       .post(endpoint, this.state)
       .then(res => {
