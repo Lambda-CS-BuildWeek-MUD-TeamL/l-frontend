@@ -2,14 +2,21 @@ import React from "react";
 import axios from "axios";
 
 export default class HomePage extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      rooms: []
+      rooms: [],
+      token: "",
+      player: "",
+      rmPlayers: "",
+      rmTitle: "",
+      rmDescrip: "",
     };
   }
 
   componentDidMount() {
+    this.init();
+
     const endpoint = "https://cs21teaml.herokuapp.com/api/adv/rooms";
     axios
       .get(endpoint)
@@ -26,6 +33,27 @@ export default class HomePage extends React.Component {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  init = () => {
+    const key = "31bf15bfdc6114ce8fdac6c86b8b1b98b0fe9911";
+    const backendurl = "https://cs21teaml.herokuapp.com";
+
+    axios({
+      url: `${backendurl}/api/adv/init`,
+      method: "GET",
+      headers: {
+        Authorization: `Token ${key}`
+      }
+    }).then(res => {
+      this.setState({
+        player: res.data.name,
+        rmPlayers: res.data.players,
+        rmTitle: res.data.title,
+        rmDescrip: res.data.description
+      })
+    })
+
   }
 
   render() {
@@ -71,7 +99,14 @@ export default class HomePage extends React.Component {
               </button>
             </div>
           </div>
-          <div className="sub-control"></div>
+          <div className="sub-control">
+            <ul>
+              <li>{this.state.player}</li>
+              <li>{this.state.rmTitle}</li>
+              <li>{this.state.rmDescrip}</li>
+              <li>{this.state.rmPlayers}</li>
+            </ul>
+          </div>
         </div>
       </div>
     );
