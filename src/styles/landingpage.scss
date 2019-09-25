@@ -1,0 +1,12 @@
+.landing-div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .landing-link {
+        color: white;
+        text-decoration: underline;
+        margin: 1rem 0;
+    }
+}
