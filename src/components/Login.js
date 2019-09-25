@@ -18,7 +18,8 @@ export default class Login extends React.Component {
       .post(endpoint, this.state)
       .then(res => {
         console.log("key/token", res.data);
-        localStorage.setItem("token", res.data.key);
+        const token = res.data["key"];
+        localStorage.setItem("token", `Token ${token}`);
         this.props.history.push("/home");
       })
       .catch(error => {
@@ -43,7 +44,7 @@ export default class Login extends React.Component {
               name="username"
             />
             <input
-              type="text"
+              type="password"
               placeholder="password"
               onChange={this.handleChange}
               value={this.state.password}

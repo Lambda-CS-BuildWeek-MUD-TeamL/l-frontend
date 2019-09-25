@@ -7,10 +7,12 @@ export default class HomePage extends React.Component {
     this.state = {
       rooms: [],
       token: "",
+      uuid: "",
       player: "",
       rmPlayers: "",
       rmTitle: "",
       rmDescrip: "",
+      direction: ""
     };
   }
 
@@ -36,24 +38,58 @@ export default class HomePage extends React.Component {
   }
 
   init = () => {
-    const key = "31bf15bfdc6114ce8fdac6c86b8b1b98b0fe9911";
+    const backendurl = "https://cs21teaml.herokuapp.com";
+    //const key = "31bf15bfdc6114ce8fdac6c86b8b1b98b0fe9911";
+    const key = localStorage.getItem("token");
+
+    axios({
+      url: `${backendurl}/api/adv/init/`,
+      method: "GET",
+      headers: {
+        Authorization: `${key}`
+      }
+    })
+    .then(res => {
+      console.log("start info", res.data);
+      this.setState({
+        token: key,
+        uuid: res.data.uuid,
+        player: res.data.name,
+        rmTitle: res.data.title,
+        rmDescrip: res.data.description,
+        rmPlayers: res.data.players
+      })
+      })
+      .catch(err => {
+        console.log("Crap:", err)
+    })
+
+  }
+
+  handleDirection = direction => {
     const backendurl = "https://cs21teaml.herokuapp.com";
 
     axios({
-      url: `${backendurl}/api/adv/init`,
-      method: "GET",
+      url: `${backendurl}/api/adv/move/`,
+      method: "POST",
       headers: {
-        Authorization: `Token ${key}`
+        Authorization: `${this.state.token}`
+      },
+      data: {
+        direction: direction
       }
-    }).then(res => {
-      this.setState({
-        player: res.data.name,
-        rmPlayers: res.data.players,
-        rmTitle: res.data.title,
-        rmDescrip: res.data.description
-      })
     })
-
+      .then(res => {
+        console.log("Direction", res.data);
+        this.setState({
+          rmTitle: res.data.title,
+          rmDescrip: res.data.description,
+          rmPlayers: res.data.players
+        })
+      })
+      .catch(err => {
+        console.log("Shite!", err);
+      })
   }
 
   render() {
@@ -81,20 +117,20 @@ export default class HomePage extends React.Component {
         <div className="controls-div">
           <div className="sub-control">
             <div className="button-div">
-              <button className="ind-button">
+              <button className="ind-button" onClick={() => this.handleDirection("n")}>
                 <i className="fas fa-arrow-up"></i>
               </button>
             </div>
             <div className="button-div">
-              <button className="ind-button">
+              <button className="ind-button" onClick={() => this.handleDirection("w")}>
                 <i className="fas fa-arrow-left"></i>
               </button>
-              <button className="ind-button">
+              <button className="ind-button" onClick={() => this.handleDirection("e")}>
                 <i className="fas fa-arrow-right"></i>
               </button>
             </div>
             <div className="button-div">
-              <button className="ind-button">
+              <button className="ind-button" onClick={() => this.handleDirection("s")}>
                 <i className="fas fa-arrow-down"></i>
               </button>
             </div>
