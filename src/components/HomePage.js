@@ -36,16 +36,13 @@ export default class HomePage extends React.Component {
           {this.state.rooms.map(room => {
             return (
               <div
+                key={room.id}
                 className="rooms-div"
                 style={{
-                  borderRight:
-                    room.e_to === 0 ? "5px solid #c4c4c4" : "none",
-                  borderLeft:
-                    room.w_to === 0 ? "5px solid #c4c4c4" : "none",
-                    borderTop:
-                    room.n_to === 0 ? "5px solid #c4c4c4" : "none",
-                    borderBottom:
-                    room.s_to === 0 ? "5px solid #c4c4c4" : "none"
+                  borderRight: room.e_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderLeft: room.w_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderTop: room.n_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderBottom: room.s_to === 0 ? "5px solid #c4c4c4" : "none"
                 }}
               >
                 <p className="room-id">{room.id}</p>
