@@ -1,53 +1,72 @@
 .homepage-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .homepage-header {
+    color: white;
+  }
+  .game-div {
+    // border: 1px solid #4f4f4f;
+    width: 80%;
+    height: 510px;
+    border-radius: 5px;
+    // background: #0e1015;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .controls-div {
+    border: 1px solid #4f4f4f;
+    width: 80%;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sub-control {
+    width: 40%;
+    border: 1px solid #4f4f4f;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    .homepage-header {
-        color: white;
-    }
-    .game-div {
-        border: 1px solid #4f4f4f;
-        width: 80%;
-        height: 500px;
-        border-radius: 5px;
-        background: #0E1015;
-    }
-    .controls-div {
-        border: 1px solid #4f4f4f;
-        width: 80%;
-        height: 200px;
-        border-radius: 5px;
-        margin-top: 5px;
-        display: flex;
-        justify-content: space-between
-    }
-    .sub-control {
-        width: 40%;
-        border: 1px solid #4f4f4f;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 10px 0;
+    justify-content: space-between;
+    padding: 10px 0;
 
-        
-        .button-div {
-            display: flex;
-            justify-content: center;
-            height: 30%;
-        }
-        .ind-button {
-            width: 100px;
-            border-radius: 5px;
-            background: #3f4248;
-            border: 0;
-            margin-right: 10px;
-            font-size: 1.2rem;
-
-            &:hover {
-                cursor: pointer;
-                background: #c4c4c4;
-            }
-        }
+    .button-div {
+      display: flex;
+      justify-content: center;
+      height: 30%;
     }
+    .ind-button {
+      width: 100px;
+      border-radius: 5px;
+      background: #3f4248;
+      border: 0;
+      margin-right: 10px;
+      font-size: 1.2rem;
+
+      &:hover {
+        cursor: pointer;
+        background: #c4c4c4;
+      }
+    }
+  }
+}
+.rooms-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #4f4f4f;
+//   border-radius: 2px;
+  height: 10%;
+  width: 10%;
+//   margin: 1px;
+  background: #0e1015;
+
+  .room-id {
+      color: white;
+      font-size: 18px
+  }
 }

@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/unauthorized' component={Unauthorized} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path ='/home' component={HomePage} />
+          <PrivateRoute exact path ='/home' component={HomePage} />
         </>
       </div>
     </Router>
