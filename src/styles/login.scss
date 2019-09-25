@@ -8,7 +8,10 @@
   margin-top: 150px;
 
   .user-icon {
-    color: rgb(0, 0, 0);
+    color: white;
+  }
+  .login-header {
+    color: white;
   }
 
   .login-form {
@@ -28,6 +31,20 @@
       input:focus {
         box-shadow: inset 0 -5px 45px rgba(107, 107, 107, 0.4),
           0 1px 1px rgba(255, 255, 255, 0.2);
+      }
+      button {
+        width: 100%;
+        height: 2.8rem;
+        border-radius: 3px;
+        background: #3f4248;
+        border: 0;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+
+        &:hover {
+          cursor: pointer;
+          background: white;
+        }
       }
     }
   }
