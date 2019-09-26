@@ -2,9 +2,6 @@ import React from "react";
 import axios from "axios";
 import { white } from "ansi-colors";
 
-import Image from "../images/wtf.jpg";
-import Room1 from "../images/lol.jpg";
-
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -67,13 +64,13 @@ export default class HomePage extends React.Component {
         });
         {
           if (res.data.title === "Room 1") {
-            const imgUrl = Room1;
+            const imgUrl = "https://picsum.photos/190?random=1";
             this.setState({
               rmImg: imgUrl
             });
           }
           if (res.data.title === "Room 2") {
-            const imgUrl = Image;
+            const imgUrl = "https://picsum.photos/id/34/190";
             this.setState({
               rmImg: imgUrl
             });
@@ -108,12 +105,12 @@ export default class HomePage extends React.Component {
           error_msg: res.data.error_msg
         });
         if (res.data.title === "Room 1" && !res.data.error_msg) {
-          const imgUrl = Room1;
+          const imgUrl = "https://picsum.photos/190?random=1";
           this.setState({
             rmImg: imgUrl
           });
         } else if (res.data.title === "Room 2" && !res.data.error_msg) {
-          const imgUrl = Image;
+          const imgUrl = "https://picsum.photos/id/34/190";
           this.setState({
             rmImg: imgUrl
           });
