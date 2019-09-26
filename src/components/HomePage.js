@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { white } from "ansi-colors";
 
+import Image from "../images/wtf.jpg";
+import Room1 from "../images/lol.jpg";
+
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -14,11 +17,8 @@ export default class HomePage extends React.Component {
       rmTitle: "",
       rmDescrip: "",
       direction: "",
-<<<<<<< HEAD
-      rmImg: ""
-=======
+      rmImg: "",
       error_msg: ""
->>>>>>> 9e0880fb84f3557190044c837a62bf9d8592f5d3
     };
   }
 
@@ -67,13 +67,13 @@ export default class HomePage extends React.Component {
         });
         {
           if (res.data.title === "Room 1") {
-            const imgUrl = "https://picsum.photos/200?random=1";
+            const imgUrl = Room1;
             this.setState({
               rmImg: imgUrl
             });
           }
           if (res.data.title === "Room 2") {
-            const imgUrl = "https://picsum.photos/id/1008/200";
+            const imgUrl = Image;
             this.setState({
               rmImg: imgUrl
             });
@@ -107,6 +107,17 @@ export default class HomePage extends React.Component {
           rmPlayers: res.data.players,
           error_msg: res.data.error_msg
         });
+        if (res.data.title === "Room 1" && !res.data.error_msg) {
+          const imgUrl = Room1;
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 2" && !res.data.error_msg) {
+          const imgUrl = Image;
+          this.setState({
+            rmImg: imgUrl
+          });
+        }
       })
       .catch(err => {
         console.log("Shite!", err);
@@ -179,7 +190,9 @@ export default class HomePage extends React.Component {
               </button>
             </div>
           </div>
-          <div className="sub-control"></div>
+          <div className="sub-control">
+            <img src={this.state.rmImg} alt="random" />
+          </div>
           <div className="sub-control-text">
             <p className="player">{this.state.player}</p>
             <p>{this.state.rmTitle}</p>
