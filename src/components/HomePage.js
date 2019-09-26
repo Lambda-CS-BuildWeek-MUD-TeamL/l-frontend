@@ -29,7 +29,7 @@ export default class HomePage extends React.Component {
         console.log(res.data);
         const newArr = res.data.rooms;
         this.setState({
-          rooms: newArr.sort(function(a, b) {
+          rooms: newArr.sort(function (a, b) {
             return a.id - b.id;
           })
         });
@@ -120,11 +120,19 @@ export default class HomePage extends React.Component {
         console.log("Shite!", err);
       });
   };
+  logout = () => {
+    localStorage.removeItem('token');
+    console.log('logout working')
+    this.props.history.push('/')
+  }
 
   render() {
     return (
       <div className="homepage-div">
-        <h1 className="homepage-header">Team L - MUD</h1>
+        <div className="homepage-header">
+          <h1 className="homepage-header">MUD - Team L</h1>
+          <button onClick={this.logout}>Log Out</button>
+        </div>
         <div className="game-div">
           {this.state.rooms.map(room => {
             return (
@@ -147,9 +155,9 @@ export default class HomePage extends React.Component {
                   {room.title === this.state.rmTitle ? (
                     <i id='av-horse' className="fas fa-horse"></i>
                   ) : (
-                    <i id='av-circle' className="fas fa-circle"></i>
-                  )}
-                </p> 
+                      <i id='av-circle' className="fas fa-circle"></i>
+                    )}
+                </p>
               </div>
             );
           })}
@@ -198,11 +206,11 @@ export default class HomePage extends React.Component {
             {!this.state.error_msg ? (
               ""
             ) : (
-              <p>
-                <i id="dir-warning" className="fas fa-exclamation-circle"></i>
-                {this.state.error_msg}
-              </p>
-            )}
+                <p>
+                  <i id="dir-warning" className="fas fa-exclamation-circle"></i>
+                  {this.state.error_msg}
+                </p>
+              )}
           </div>
         </div>
       </div>

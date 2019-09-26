@@ -4,8 +4,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 150px;
-  height: 300px;
-  margin-top: 150px;
+  height: 500px;
 
   .user-icon {
     color: white;
@@ -47,5 +46,12 @@
         }
       }
     }
+  }
+  .login-redirect {
+    font-size: 1rem;
+    color: white;
+  }
+  .login-redirect:hover {
+    color: rgb(118, 169, 185);
   }
 }
