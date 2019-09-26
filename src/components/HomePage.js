@@ -12,7 +12,8 @@ export default class HomePage extends React.Component {
       rmPlayers: "",
       rmTitle: "",
       rmDescrip: "",
-      direction: ""
+      direction: "",
+      error_msg: ''
     };
   }
 
@@ -49,22 +50,21 @@ export default class HomePage extends React.Component {
         Authorization: `${key}`
       }
     })
-    .then(res => {
-      console.log("start info", res.data);
-      this.setState({
-        token: key,
-        uuid: res.data.uuid,
-        player: res.data.name,
-        rmTitle: res.data.title,
-        rmDescrip: res.data.description,
-        rmPlayers: res.data.players
-      })
+      .then(res => {
+        console.log("start info", res.data);
+        this.setState({
+          token: key,
+          uuid: res.data.uuid,
+          player: res.data.name,
+          rmTitle: res.data.title,
+          rmDescrip: res.data.description,
+          rmPlayers: res.data.players,
+        });
       })
       .catch(err => {
-        console.log("Crap:", err)
-    })
-
-  }
+        console.log("Crap:", err);
+      });
+  };
 
   handleDirection = direction => {
     const backendurl = "https://cs21teaml.herokuapp.com";
@@ -84,13 +84,14 @@ export default class HomePage extends React.Component {
         this.setState({
           rmTitle: res.data.title,
           rmDescrip: res.data.description,
-          rmPlayers: res.data.players
-        })
+          rmPlayers: res.data.players,
+          error_msg: res.data.error_msg
+        });
       })
       .catch(err => {
         console.log("Shite!", err);
-      })
-  }
+      });
+  };
 
   render() {
     return (
@@ -103,13 +104,22 @@ export default class HomePage extends React.Component {
                 key={room.id}
                 className="rooms-div"
                 style={{
-                  borderRight: room.e_to === 0 ? "5px solid #c4c4c4" : "5px solid green",
-                  borderLeft: room.w_to === 0 ? "5px solid #c4c4c4" : "5px solid green",
-                  borderTop: room.n_to === 0 ? "5px solid #c4c4c4" : "5px solid green",
-                  borderBottom: room.s_to === 0 ? "5px solid #c4c4c4" : "5px solid green"
+                  borderRight: room.e_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderLeft: room.w_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderTop: room.n_to === 0 ? "5px solid #c4c4c4" : "none",
+                  borderBottom: room.s_to === 0 ? "5px solid #c4c4c4" : "none",
+                  background:
+                    room.title === this.state.rmTitle ? "white" : "none"
                 }}
               >
-                <p className="room-id">{room.id}</p>
+                <p
+                  className="room-id"
+                  style={{
+                    color: room.title === this.state.rmTitle ? "black" : "white"
+                  }}
+                >
+                  {room.id}
+                </p>
               </div>
             );
           })}
@@ -117,31 +127,44 @@ export default class HomePage extends React.Component {
         <div className="controls-div">
           <div className="sub-control">
             <div className="button-div">
-              <button className="ind-button" onClick={() => this.handleDirection("n")}>
+              <button
+                className="ind-button"
+                onClick={() => this.handleDirection("n")}
+              >
                 <i className="fas fa-arrow-up"></i>
               </button>
             </div>
             <div className="button-div">
-              <button className="ind-button" onClick={() => this.handleDirection("w")}>
+              <button
+                className="ind-button"
+                onClick={() => this.handleDirection("w")}
+              >
                 <i className="fas fa-arrow-left"></i>
               </button>
-              <button className="ind-button" onClick={() => this.handleDirection("e")}>
+              <button
+                className="ind-button"
+                onClick={() => this.handleDirection("e")}
+              >
                 <i className="fas fa-arrow-right"></i>
               </button>
             </div>
             <div className="button-div">
-              <button className="ind-button" onClick={() => this.handleDirection("s")}>
+              <button
+                className="ind-button"
+                onClick={() => this.handleDirection("s")}
+              >
                 <i className="fas fa-arrow-down"></i>
               </button>
             </div>
           </div>
           <div className="sub-control">
-            <ul>
-              <li>{this.state.player}</li>
-              <li>{this.state.rmTitle}</li>
-              <li>{this.state.rmDescrip}</li>
-              <li>{this.state.rmPlayers}</li>
-            </ul>
+          </div>
+          <div className="sub-control-text">
+              <p>Player: {this.state.player}</p>
+              <p>Room: {this.state.rmTitle}</p>
+              <p>Description: {this.state.rmDescrip}</p>
+              {/* <p>{this.state.rmPlayers}</p> */}
+              <p>{this.state.error_msg}</p>
           </div>
         </div>
       </div>
