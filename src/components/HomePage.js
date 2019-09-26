@@ -12,7 +12,8 @@ export default class HomePage extends React.Component {
       rmPlayers: "",
       rmTitle: "",
       rmDescrip: "",
-      direction: ""
+      direction: "",
+      rmImg: ""
     };
   }
 
@@ -49,7 +50,7 @@ export default class HomePage extends React.Component {
         Authorization: `${key}`
       }
     })
-    .then(res => {
+      .then(res => {
       console.log("start info", res.data);
       this.setState({
         token: key,
@@ -58,9 +59,17 @@ export default class HomePage extends React.Component {
         rmTitle: res.data.title,
         rmDescrip: res.data.description,
         rmPlayers: res.data.players
+        });
+        {
+          if (res.data.title === "Room 1") {
+            const imgUrl = "https://picsum.photos/200";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+        }
       })
-      })
-      .catch(err => {
+        .catch(err => {
         console.log("Crap:", err)
     })
 
@@ -134,6 +143,9 @@ export default class HomePage extends React.Component {
                 <i className="fas fa-arrow-down"></i>
               </button>
             </div>
+          </div>
+          <div>
+            <img src={this.state.rmImg} alt="random" />
           </div>
           <div className="sub-control">
             <ul>
