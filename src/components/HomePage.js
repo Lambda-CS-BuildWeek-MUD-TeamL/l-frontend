@@ -14,6 +14,7 @@ export default class HomePage extends React.Component {
       rmTitle: "",
       rmDescrip: "",
       direction: "",
+      rmImg: "",
       error_msg: ""
     };
   }
@@ -52,20 +53,35 @@ export default class HomePage extends React.Component {
       }
     })
       .then(res => {
-        console.log("start info", res.data);
-        this.setState({
-          token: key,
-          uuid: res.data.uuid,
-          player: res.data.name,
-          rmTitle: res.data.title,
-          rmDescrip: res.data.description,
-          rmPlayers: res.data.players
+      console.log("start info", res.data);
+      this.setState({
+        token: key,
+        uuid: res.data.uuid,
+        player: res.data.name,
+        rmTitle: res.data.title,
+        rmDescrip: res.data.description,
+        rmPlayers: res.data.players
         });
+        {
+          if (res.data.title === "Room 1") {
+            const imgUrl = "https://picsum.photos/190?random=1";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+          if (res.data.title === "Room 2") {
+            const imgUrl = "https://picsum.photos/id/34/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+        }
       })
-      .catch(err => {
-        console.log("Crap:", err);
-      });
-  };
+        .catch(err => {
+        console.log("Crap:", err)
+    })
+
+  }
 
   handleDirection = direction => {
     const backendurl = "https://cs21teaml.herokuapp.com";
@@ -88,6 +104,17 @@ export default class HomePage extends React.Component {
           rmPlayers: res.data.players,
           error_msg: res.data.error_msg
         });
+        if (res.data.title === "Room 1" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/190?random=1";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 2" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/34/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        }
       })
       .catch(err => {
         console.log("Shite!", err);
@@ -160,7 +187,9 @@ export default class HomePage extends React.Component {
               </button>
             </div>
           </div>
-          <div className="sub-control"></div>
+          <div className="sub-control">
+            <img src={this.state.rmImg} alt="random" />
+          </div>
           <div className="sub-control-text">
             <p className="player">{this.state.player}</p>
             <p>{this.state.rmTitle}</p>
