@@ -160,11 +160,12 @@ export default class HomePage extends React.Component {
           <div className="sub-control">
           </div>
           <div className="sub-control-text">
-              <p>Player: {this.state.player}</p>
-              <p>Room: {this.state.rmTitle}</p>
-              <p>Description: {this.state.rmDescrip}</p>
+              <p className='player'>{this.state.player}</p>
+              <p>{this.state.rmTitle}</p>
+              <p>{this.state.rmDescrip}</p>
               {/* <p>{this.state.rmPlayers}</p> */}
-              <p>{this.state.error_msg}</p>
+              {!this.state.error_msg ? '' : <p><i id='dir-warning' className="fas fa-exclamation-circle"></i>{this.state.error_msg}</p>}
+              
           </div>
         </div>
       </div>
