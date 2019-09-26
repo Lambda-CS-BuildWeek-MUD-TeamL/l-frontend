@@ -8,6 +8,7 @@
   .game-div {
     // border: 1px solid #4f4f4f;
     width: 80%;
+    max-width: 950px;
     height: 510px;
     border-radius: 5px;
     // background: #0e1015;
@@ -19,6 +20,7 @@
   .controls-div {
     border: 1px solid #4f4f4f;
     width: 80%;
+    max-width: 950px;
     height: 200px;
     border-radius: 5px;
     margin-top: 20px;
@@ -33,6 +35,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 0;
+    color: white;
 
     .button-div {
       display: flex;
@@ -68,5 +71,42 @@
   .room-id {
       color: white;
       font-size: 18px
+  }
+
+  #av-horse {
+    font-size: 2rem;
+  }
+
+  #av-circle {
+    font-size: 1rem;
+  }
+}
+.sub-control-text {
+  width: 40%;
+  border: 1px solid #4f4f4f;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // padding: 10px 0;
+  color: white;
+  font-size: 1rem;
+
+
+  p {
+    margin: 0.4rem;
+  }
+  .player {
+    // border: 1px solid red;
+    width: 100%;
+    margin: 0;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4f4f4f;
+  }
+  #dir-warning {
+    margin-right: 5px;
   }
 }
