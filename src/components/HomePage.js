@@ -93,11 +93,19 @@ export default class HomePage extends React.Component {
         console.log("Shite!", err);
       });
   };
+  logout = () => {
+    localStorage.removeItem('token');
+    console.log('logout working')
+    this.props.history.push('/')
+  }
 
   render() {
     return (
       <div className="homepage-div">
-        <h1 className="homepage-header">Team L - MUD</h1>
+        <div className="homepage-header">
+          <h1 className="homepage-header">MUD - Team L</h1>
+          <button onClick={this.logout}>Log Out</button>
+        </div>
         <div className="game-div">
           {this.state.rooms.map(room => {
             return (
@@ -176,7 +184,7 @@ export default class HomePage extends React.Component {
               )}
           </div>
         </div>
-      </div >
+      </div>
     );
   }
 }

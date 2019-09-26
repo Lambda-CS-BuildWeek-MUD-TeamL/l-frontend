@@ -18,7 +18,6 @@ export default class Login extends React.Component {
     axios
       .post(endpoint, this.state)
       .then(res => {
-        console.log("key/token", res.data);
         const token = res.data["key"];
         localStorage.setItem("token", `Token ${token}`);
         this.props.history.push("/home");
