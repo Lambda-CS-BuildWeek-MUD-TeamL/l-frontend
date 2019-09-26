@@ -272,6 +272,111 @@ export default class HomePage extends React.Component {
               rmImg: imgUrl
             });
           }
+
+          if (res.data.title === "Room 31") {
+            const imgUrl = "https://picsum.photos/id/1062/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 32") {
+            const imgUrl = "https://picsum.photos/id/227/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 33") {
+            const imgUrl = "https://picsum.photos/id/40/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 34") {
+            const imgUrl = "https://picsum.photos/id/42/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 35") {
+            const imgUrl = "https://picsum.photos/id/478/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 36") {
+            const imgUrl = "https://picsum.photos/id/491/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 37") {
+            const imgUrl = "https://picsum.photos/id/515/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 38") {
+            const imgUrl = "https://picsum.photos/id/611/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 39") {
+            const imgUrl = "https://picsum.photos/id/755/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 40") {
+            const imgUrl = "https://picsum.photos/id/935/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 41") {
+            const imgUrl = "https://picsum.photos/id/967/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 42") {
+            const imgUrl = "https://picsum.photos/id/1028/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 43") {
+            const imgUrl = "https://picsum.photos/id/104/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 44") {
+            const imgUrl = "https://picsum.photos/id/959/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+
+          if (res.data.title === "Room 45") {
+            const imgUrl = "https://picsum.photos/id/115/190";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
       })
         .catch(err => {
         console.log("Crap:", err)
@@ -447,6 +552,81 @@ export default class HomePage extends React.Component {
           });
         } else if (res.data.title === "Room 30" && !res.data.error_msg) {
           const imgUrl = "https://picsum.photos/id/555/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 31" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/1062/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 32" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/227/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 33" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/40/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 34" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/42/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 35" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/478/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 36" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/491/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 37" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/515/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 38" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/611/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 39" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/755/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 40" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/935/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 41" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/967/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 42" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/1028/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 43" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/104/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 44" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/959/190";
+          this.setState({
+            rmImg: imgUrl
+          });
+        } else if (res.data.title === "Room 45" && !res.data.error_msg) {
+          const imgUrl = "https://picsum.photos/id/115/190";
           this.setState({
             rmImg: imgUrl
           });
