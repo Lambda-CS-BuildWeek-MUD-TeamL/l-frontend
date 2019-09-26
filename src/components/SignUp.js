@@ -20,7 +20,8 @@ export default class SignUp extends React.Component {
       .post(endpoint, this.state)
       .then(res => {
         console.log("key/token", res.data);
-        localStorage.setItem("token", res.data.key);
+        const token = res.data["key"];
+        localStorage.setItem("token", `Token ${token}`);
         this.props.history.push("/home");
       })
       .catch(error => {
@@ -53,14 +54,14 @@ export default class SignUp extends React.Component {
               name="email"
             />
             <input
-              type="text"
+              type="password"
               placeholder="password1"
               onChange={this.handleChange}
               value={this.state.password1}
               name="password1"
             />
             <input
-              type="text"
+              type="password"
               placeholder="password2"
               onChange={this.handleChange}
               value={this.state.password2}
