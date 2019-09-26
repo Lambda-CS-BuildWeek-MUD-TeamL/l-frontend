@@ -62,7 +62,13 @@ export default class HomePage extends React.Component {
         });
         {
           if (res.data.title === "Room 1") {
-            const imgUrl = "https://picsum.photos/200";
+            const imgUrl = "https://picsum.photos/200?random=1";
+            this.setState({
+              rmImg: imgUrl
+            });
+          }
+          if (res.data.title === "Room 2") {
+            const imgUrl = "https://picsum.photos/id/1008/200";
             this.setState({
               rmImg: imgUrl
             });
