@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { white } from "ansi-colors";
 
 export default class HomePage extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class HomePage extends React.Component {
       rmTitle: "",
       rmDescrip: "",
       direction: "",
-      error_msg: ''
+      error_msg: ""
     };
   }
 
@@ -58,7 +59,7 @@ export default class HomePage extends React.Component {
           player: res.data.name,
           rmTitle: res.data.title,
           rmDescrip: res.data.description,
-          rmPlayers: res.data.players,
+          rmPlayers: res.data.players
         });
       })
       .catch(err => {
@@ -104,22 +105,24 @@ export default class HomePage extends React.Component {
                 key={room.id}
                 className="rooms-div"
                 style={{
-                  borderRight: room.e_to === 0 ? "5px solid #c4c4c4" : "none",
-                  borderLeft: room.w_to === 0 ? "5px solid #c4c4c4" : "none",
-                  borderTop: room.n_to === 0 ? "5px solid #c4c4c4" : "none",
-                  borderBottom: room.s_to === 0 ? "5px solid #c4c4c4" : "none",
-                  background:
-                    room.title === this.state.rmTitle ? "white" : "none"
+                  borderRight: room.e_to === 0 ? "5px solid #4f4f4f" : "none",
+                  borderLeft: room.w_to === 0 ? "5px solid #4f4f4f" : "none",
+                  borderTop: room.n_to === 0 ? "5px solid #4f4f4f" : "none",
+                  borderBottom: room.s_to === 0 ? "5px solid #4f4f4f" : "none",
                 }}
               >
                 <p
                   className="room-id"
                   style={{
-                    color: room.title === this.state.rmTitle ? "black" : "white"
+                    color: room.title === this.state.rmTitle ? 'dodgerblue' : '#c4c4c4'
                   }}
                 >
-                  {room.id}
-                </p>
+                  {room.title === this.state.rmTitle ? (
+                    <i id='av-horse' className="fas fa-horse"></i>
+                  ) : (
+                    <i id='av-circle' className="fas fa-circle"></i>
+                  )}
+                </p> 
               </div>
             );
           })}
@@ -157,15 +160,20 @@ export default class HomePage extends React.Component {
               </button>
             </div>
           </div>
-          <div className="sub-control">
-          </div>
+          <div className="sub-control"></div>
           <div className="sub-control-text">
-              <p className='player'>{this.state.player}</p>
-              <p>{this.state.rmTitle}</p>
-              <p>{this.state.rmDescrip}</p>
-              {/* <p>{this.state.rmPlayers}</p> */}
-              {!this.state.error_msg ? '' : <p><i id='dir-warning' className="fas fa-exclamation-circle"></i>{this.state.error_msg}</p>}
-              
+            <p className="player">{this.state.player}</p>
+            <p>{this.state.rmTitle}</p>
+            <p>{this.state.rmDescrip}</p>
+            {/* <p>{this.state.rmPlayers}</p> */}
+            {!this.state.error_msg ? (
+              ""
+            ) : (
+              <p>
+                <i id="dir-warning" className="fas fa-exclamation-circle"></i>
+                {this.state.error_msg}
+              </p>
+            )}
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@
   .game-div {
     // border: 1px solid #4f4f4f;
     width: 80%;
+    max-width: 950px;
     height: 510px;
     border-radius: 5px;
     // background: #0e1015;
@@ -19,6 +20,7 @@
   .controls-div {
     border: 1px solid #4f4f4f;
     width: 80%;
+    max-width: 950px;
     height: 200px;
     border-radius: 5px;
     margin-top: 20px;
@@ -69,6 +71,14 @@
   .room-id {
       color: white;
       font-size: 18px
+  }
+
+  #av-horse {
+    font-size: 2rem;
+  }
+
+  #av-circle {
+    font-size: 1rem;
   }
 }
 .sub-control-text {
