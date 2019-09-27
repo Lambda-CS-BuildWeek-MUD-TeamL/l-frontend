@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { white } from "ansi-colors";
 
 export default class HomePage extends React.Component {
   constructor(props) {
