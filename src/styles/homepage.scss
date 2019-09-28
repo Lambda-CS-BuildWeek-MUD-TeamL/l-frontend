@@ -1,23 +1,33 @@
 .homepage-div {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .homepage-header {
+  .homepage-heading {
     color: white;
+    margin: 0;
+    font-family: 'Rye', cursive;
+    font-weight: normal;
   }
   .homepage-header {
+    width: 50%;
     display: flex;
+    justify-content: space-between; 
     align-items: center;
     button {
       border: none;
       font-size: 1.2rem;
-      margin-left: 165px;
-      background: #4278b6;
+      // margin-left: 165px;
+      background: rgb(118, 169, 185);
       color: white;
     }
     button:hover {
       background: rgb(255, 255, 255);
-      color: #4278b6;
+      color: rgb(118, 169, 185);
+    }
+    button:focus {
+      outline-color:rgb(118, 169, 185);
+      outline-style: outset;
     }
   }
   .game-div {
@@ -59,7 +69,7 @@
     }
     .ind-button {
       width: 100px;
-      border-radius: 5px;
+      // border-radius: 5px;
       background: #3f4248;
       border: 0;
       margin-right: 10px;
@@ -69,6 +79,10 @@
         cursor: pointer;
         background: #c4c4c4;
       }
+    }
+    button:focus {
+      outline-color:rgb(118, 169, 185);
+      outline-style: outset;
     }
   }
 }
@@ -119,6 +133,7 @@
     justify-content: center;
     align-items: center;
     background: #4f4f4f;
+    font-family: 'Rye', cursive;
   }
   #dir-warning {
     margin-right: 5px;

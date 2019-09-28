@@ -129,7 +129,7 @@ export default class HomePage extends React.Component {
     return (
       <div className="homepage-div">
         <div className="homepage-header">
-          <h1 className="homepage-header">MUD - Team L</h1>
+          <h2 className="homepage-heading">MUD - Team L</h2>
           <button onClick={this.logout}>Log Out</button>
         </div>
         <div className="game-div">
